@@ -25,3 +25,13 @@ game:GetService("Players").LocalPlayer.Blocks
 for _, blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
    setclipboard(blocks.Name)
 end
+
+local folder = game:GetService("Players").LocalPlayer.Blocks
+
+local names = {}
+
+for _, obj in ipairs(folder:GetChildren()) do
+    table.insert(names, obj.Name)
+end
+
+setclipboard(table.concat(names, ", "))
