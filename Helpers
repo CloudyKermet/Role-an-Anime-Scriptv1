@@ -1,1 +1,13 @@
+local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "2"
+)
 
+local Event = game:GetService("ReplicatedStorage").Network.Client.Rebirth
+Event:InvokeServer()
+
+local Event = game:GetService("ReplicatedStorage").Network.Client.EquipBestEntities
+Event:InvokeServer()
+
+local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimAllIndexRewards
+Event:FireServer()
