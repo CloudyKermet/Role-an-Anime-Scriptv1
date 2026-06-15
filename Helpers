@@ -21,3 +21,7 @@ Event:InvokeServer(
 )
 
 game:GetService("Players").LocalPlayer.Blocks
+
+for blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
+   setclipboard(blocks.Name)
+end
