@@ -7,7 +7,7 @@ local autorebirth = false
 local autoroll = false
 
 local Window = Rayfield:CreateWindow({
-   Name = "Roll an Anime",
+   Name = "Roll an Anime v4",
    LoadingTitle = "By Kermet",
    LoadingSubtitle = "Loading...",
    ShowText = "Rayfield",
