@@ -128,10 +128,12 @@ end
 
 if autoroll then
 for _, blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
+    if blocks.Value > 0 then
    local Event = game:GetService("ReplicatedStorage").Network.Client.RollBlock
 Event:InvokeServer(
     blocks.Name
 )
+end
 end
 end
 end)
