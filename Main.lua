@@ -1,7 +1,7 @@
 print("Loaded")
 local plr = game.Players.LocalPlayer
 local RunService = game:GetService("RunService")
-local autocollect = false
+local autocollect = true
 
 RunService.RenderStepped:Connect(function(dt)
    if autocollect then
