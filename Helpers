@@ -19,3 +19,5 @@ local Event = game:GetService("ReplicatedStorage").Network.Client.RollBlock
 Event:InvokeServer(
     "LegendaryBlock"
 )
+
+game:GetService("Players").LocalPlayer.Blocks
