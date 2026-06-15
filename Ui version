@@ -1,0 +1,21 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "Roll an Anime",
+   LoadingTitle = "By Kermet",
+   LoadingSubtitle = "Loading...",
+   ShowText = "Rayfield",
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false
+})
+
+local Tab1 = Window:CreateTab("Plot", 4483362458)
+
+local ACT = Tab1:CreateToggle({
+   Name = "Auto-Collect",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  
+   end,
+})
