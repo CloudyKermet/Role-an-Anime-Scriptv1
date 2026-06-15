@@ -127,8 +127,8 @@ Event:InvokeServer()
 end
 
 if autoroll then
-for blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
-    local Event = game:GetService("ReplicatedStorage").Network.Client.RollBlock
+for _, blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
+   local Event = game:GetService("ReplicatedStorage").Network.Client.RollBlock
 Event:InvokeServer(
     blocks.Name
 )
