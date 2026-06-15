@@ -3,6 +3,7 @@ local plr = game.Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local autocollect = false
 local autoindex = false
+local autorebirth = false
 
 local Window = Rayfield:CreateWindow({
    Name = "Roll an Anime",
@@ -114,15 +115,20 @@ Event:FireServer(
     end
 
 if autoindex then
-task.wait(1)
    local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimAllIndexRewards
 Event:FireServer()
+task.wait(1)
+end
+
+if autorebirth then
+    local Event = game:GetService("ReplicatedStorage").Network.Client.Rebirth
+Event:InvokeServer()
 end
 end)
 
 local Tab1 = Window:CreateTab("Autos", 4483362458)
 
-local Btn1 = Tab1:CreateToggle({
+local tgl1 = Tab1:CreateToggle({
    Name = "Auto-Collect",
    CurrentValue = false,
    Flag = "Toggle1",
@@ -131,7 +137,7 @@ local Btn1 = Tab1:CreateToggle({
    end,
 })
 
-local Btn2 = Tab1:CreateToggle({
+local tgl2 = Tab1:CreateToggle({
    Name = "Auto-Index",
    CurrentValue = false,
    Flag = "Toggle1",
@@ -139,3 +145,14 @@ local Btn2 = Tab1:CreateToggle({
   autoindex = not autoindex
    end,
 })
+
+local tgl3 = Tab1:CreateToggle({
+   Name = "Auto-Rebirth",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autorebirth = not autorebirth
+   end,
+})
+
+
