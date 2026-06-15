@@ -4,6 +4,7 @@ local RunService = game:GetService("RunService")
 local autocollect = false
 local autoindex = false
 local autorebirth = false
+local autoroll = false
 
 local Window = Rayfield:CreateWindow({
    Name = "Roll an Anime",
@@ -124,6 +125,15 @@ if autorebirth then
     local Event = game:GetService("ReplicatedStorage").Network.Client.Rebirth
 Event:InvokeServer()
 end
+
+if autoroll then
+for blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
+    local Event = game:GetService("ReplicatedStorage").Network.Client.RollBlock
+Event:InvokeServer(
+    blocks.Name
+)
+end
+end
 end)
 
 local Tab1 = Window:CreateTab("Autos", 4483362458)
@@ -154,5 +164,15 @@ local tgl3 = Tab1:CreateToggle({
   autorebirth = not autorebirth
    end,
 })
+
+local tgl4 = Tab1:CreateToggle({
+   Name = "Auto-Roll",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autoroll = not autoroll
+   end,
+})
+
 
 
