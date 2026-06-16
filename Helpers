@@ -107,3 +107,5 @@ local Event = game:GetService("ReplicatedStorage").Network.Client.PurchaseUpgrad
 Event:InvokeServer(
     "ShopStock"
 )
+
+game:GetService("Players").LocalPlayer.PlayerGui.Main.PangeaDice
