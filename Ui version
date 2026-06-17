@@ -147,7 +147,8 @@ end)
 end
 end)
 
-local Tab1 = Window:CreateTab("Client", 4483362458)
+local Tab1 = Window:CreateTab("Auto", 4483362458)
+local Tab2 = Window:CreateTab("Client", 4483362458)
 
 local tgl1 = Tab1:CreateToggle({
    Name = "Auto-Collect",
@@ -185,7 +186,7 @@ local tgl4 = Tab1:CreateToggle({
    end,
 })
 
-local tgl5 = Tab1:CreateToggle({
+local tgl5 = Tab2:CreateToggle({
    Name = "Anti-AFK",
    CurrentValue = false,
    Flag = "Toggle1",
