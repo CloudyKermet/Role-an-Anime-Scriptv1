@@ -176,6 +176,7 @@ end)
 
 local Tab1 = Window:CreateTab("Auto", 4483362458)
 local Tab2 = Window:CreateTab("Client", 4483362458)
+local Tab3 = Window:CreateTab("Misc", 4483362458)
 
 local tgl1 = Tab1:CreateToggle({
    Name = "Auto-Collect",
@@ -219,5 +220,27 @@ local tgl5 = Tab2:CreateToggle({
    Flag = "Toggle1",
    Callback = function(Value)
   antiafk = not antiafk
+   end,
+})
+
+local btn1 = Tab3:CreateButton({
+   Name = "Claim All Codes",
+   Callback = function()
+    local Event = game:GetService("ReplicatedStorage").Network.Client.RedeemCode
+Event:InvokeServer(
+    "RICHEST"
+)
+local Event = game:GetService("ReplicatedStorage").Network.Client.RedeemCode
+Event:InvokeServer(
+    "STOCKLUCK1"
+)
+local Event = game:GetService("ReplicatedStorage").Network.Client.RedeemCode
+Event:InvokeServer(
+    "STOCKQUANTITY1"
+)
+local Event = game:GetService("ReplicatedStorage").Network.Client.RedeemCode
+Event:InvokeServer(
+    "BELUGA"
+)
    end,
 })
