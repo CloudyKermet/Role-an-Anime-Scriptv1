@@ -7,6 +7,10 @@ local autoindex = false
 local autorebirth = false
 local autoroll = false
 local antiafk = false
+local autocashboost = false
+local autostockboost = false
+local automutationboost = false
+local autoluckboost = false
 
 local Window = Rayfield:CreateWindow({
    Name = "Roll an Anime v6",
@@ -174,6 +178,54 @@ end)
     end
 end)
 
+task.spawn(function()
+    while true do
+        if autocashboost then
+            local Event = game:GetService("ReplicatedStorage").Network.Client.PurchaseUpgrade
+Event:InvokeServer(
+    "GlobalIncome"
+)
+        end
+        task.wait(0.1)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if automutationboost then
+            local Event = game:GetService("ReplicatedStorage").Network.Client.PurchaseUpgrade
+Event:InvokeServer(
+    "MutationChance"
+)
+        end
+        task.wait(0.1)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if autoluckboost then
+            local Event = game:GetService("ReplicatedStorage").Network.Client.PurchaseUpgrade
+Event:InvokeServer(
+    "PlayerLuck"
+)
+        end
+        task.wait(0.1)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if autostockboost then
+local Event = game:GetService("ReplicatedStorage").Network.Client.PurchaseUpgrade
+Event:InvokeServer(
+    "ShopStock"
+)
+        end
+        task.wait(0.1)
+    end
+end)
+
 local Tab1 = Window:CreateTab("Auto", 4483362458)
 local Tab2 = Window:CreateTab("Client", 4483362458)
 local Tab3 = Window:CreateTab("Misc", 4483362458)
@@ -223,6 +275,45 @@ local tgl5 = Tab2:CreateToggle({
    end,
 })
 
+local Section = Tab1:CreateSection("Upgrades")
+
+local tgl6 = Tab1:CreateToggle({
+   Name = "Auto Cash Boost",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autocashboost = not autocashboost
+   end,
+})
+
+local tgl7 = Tab1:CreateToggle({
+   Name = "Auto Mutation Boost",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  automutationboost = not automutationboost
+   end,
+})
+
+local tgl8 = Tab1:CreateToggle({
+   Name = "Auto Luck Boost",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autoluckboost = not autoluckboost
+   end,
+})
+
+local tgl9 = Tab1:CreateToggle({
+   Name = "Auto Stock Boost",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autostockboost = not autostockboost
+   end,
+})
+
+
 local btn1 = Tab3:CreateButton({
    Name = "Claim All Codes",
    Callback = function()
@@ -244,3 +335,11 @@ Event:InvokeServer(
 )
    end,
 })
+
+local btn2 = Tab3:CreateButton({
+   Name = "Button Example",
+   Callback = function()
+    game:GetService("Players").LocalPlayer.PlayerGui.Main.PangeaDice.Visible = false
+   end,
+})
+
