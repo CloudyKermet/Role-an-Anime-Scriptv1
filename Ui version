@@ -5,9 +5,10 @@ local autocollect = false
 local autoindex = false
 local autorebirth = false
 local autoroll = false
+local antiafk = false
 
 local Window = Rayfield:CreateWindow({
-   Name = "Roll an Anime v4",
+   Name = "Roll an Anime v5",
    LoadingTitle = "By Kermet",
    LoadingSubtitle = "Loading...",
    ShowText = "Rayfield",
@@ -136,6 +137,14 @@ Event:InvokeServer(
 end
 end
 end
+
+if antiafk then
+    player.Idled:Connect(function()
+	vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+	task.wait(1)
+	vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
+end
 end)
 
 local Tab1 = Window:CreateTab("Client", 4483362458)
@@ -181,7 +190,7 @@ local tgl5 = Tab1:CreateToggle({
    CurrentValue = false,
    Flag = "Toggle1",
    Callback = function(Value)
-  autoroll = not autoroll
+  antiafk = not antiafk
    end,
 })
 
