@@ -1,0 +1,223 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Players = game:GetService("Players")
+local vu = game:GetService("VirtualUser")
+local player = Players.LocalPlayer
+local autocollect = false
+local autoindex = false
+local autorebirth = false
+local autoroll = false
+local antiafk = false
+
+local Window = Rayfield:CreateWindow({
+   Name = "Roll an Anime v6",
+   LoadingTitle = "By Kermet",
+   LoadingSubtitle = "Loading...",
+   ShowText = "Rayfield",
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false
+})
+
+local function CollectCash()
+    local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "1"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "2"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "3"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "4"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "5"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "6"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "7"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "8"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "9"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "10"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "11"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "12"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "13"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "14"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "15"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "16"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "17"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "18"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "19"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "20"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "21"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "22"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "23"
+)
+      local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimCash
+Event:FireServer(
+    "24"
+)
+end
+
+task.spawn(function()
+    while true do
+        if autocollect then
+            CollectCash()
+        end
+        task.wait(1)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if autoindex then
+            local Event = game:GetService("ReplicatedStorage").Network.Client.ClaimAllIndexRewards
+Event:FireServer()
+        end
+        task.wait(1) 
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if autorebirth then
+            local Event = game:GetService("ReplicatedStorage").Network.Client.Rebirth
+Event:InvokeServer()
+        end
+        task.wait(1) 
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if autoroll then
+            for _, blocks in ipairs(game:GetService("Players").LocalPlayer.Blocks:GetChildren()) do
+    if blocks.Value > 0 then
+   local Event = game:GetService("ReplicatedStorage").Network.Client.RollBlock
+Event:InvokeServer(
+    blocks.Name
+)
+end
+end
+        end
+        task.wait(1) 
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if antiafk then
+            player.Idled:Connect(function()
+	vu:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+	task.wait(1)
+	vu:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+end)
+        end
+        task.wait(1) 
+    end
+end)
+
+local Tab1 = Window:CreateTab("Auto", 4483362458)
+local Tab2 = Window:CreateTab("Client", 4483362458)
+
+local tgl1 = Tab1:CreateToggle({
+   Name = "Auto-Collect",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autocollect = not autocollect
+   end,
+})
+
+local tgl2 = Tab1:CreateToggle({
+   Name = "Auto-Index",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autoindex = not autoindex
+   end,
+})
+
+local tgl3 = Tab1:CreateToggle({
+   Name = "Auto-Rebirth",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autorebirth = not autorebirth
+   end,
+})
+
+local tgl4 = Tab1:CreateToggle({
+   Name = "Auto-Roll",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  autoroll = not autoroll
+   end,
+})
+
+local tgl5 = Tab2:CreateToggle({
+   Name = "Anti-AFK",
+   CurrentValue = false,
+   Flag = "Toggle1",
+   Callback = function(Value)
+  antiafk = not antiafk
+   end,
+})
